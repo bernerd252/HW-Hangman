@@ -8,6 +8,8 @@
 		<body>
 			<div id="game">
 				<p>Press any letter to play DJ Khaled at hangman</p>
+				<p>Watch your back, more importantly when you get out the shower, dry your back. "It's a cold worold out there."</p>
+
 			</div>
 			<div id="khaled">
 				<<iframe src="http://giphy.com/gifs/26yxJMepJJZ7zMuVG/html5" width="500" height="210" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
@@ -19,7 +21,7 @@
 			<script type="text/javascript">
 			
 			// declare variables
-			var dictionary = ["inspirational", "khaled", "win", "key", "another", "success", "faith", "smart", "loyal", "genius", "victory", "best", "turntables", "record", "greater", "tunes", "beat", "artist", "god", "blessed", "sneakers", "chains", "grill"]
+			var dictionary = ["inspirational", "khaled", "win", "key", "another", "success", "faith", "smart", "loyal", "genius", "victory", "best", "turntables", "record", "greater", "tunes", "beat", "artist", "god", "blessed", "sneakers", "chains", "grill", "keys", "back", "shower", "cocoa", "butter", "almond", "milk"]
 			var wins = 0;
 			var losses = 0;
 			var lives = 10;
@@ -109,7 +111,7 @@
 											//  If the number of correctGuesses = number of characters in computerGuess, user wins, game resets, computer logs 1 win for the user
 
 											if (correctGuesses.length == computerGuess.length)
-											{	alert("Oh No! How'd you win win win?");
+											{	alert("Oh No! How'd you win win win? The key is to enjoy life, because they don't want you to enjoy life.");
 												wins++, lives = 10, correctGuesses = [], guesses = [], char = [];
 												computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)];
 												var html = '<img src="images/winner.png">';
@@ -185,7 +187,7 @@
 										// if lives are less than one, computer tells the user they have lost, resets game and logs one loss for the user
 
 										if (lives < 1)
-										{	alert("I've got no time for losers");
+										{	alert("I've got no time for losers. The key to more sucess is cocoa butter.");
 											losses++, lives = 10, correctGuesses = [], guesses = [], char = [];
 											computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)];
 											{	for (z = 0; z < computerGuess.length; z++)
@@ -206,7 +208,7 @@
 										}
 									}
 								}
-								var html = "<p>Press any key to continue playing</p>" +
+								var html = "<p>Press any key to continue playing, </p>" +
 											"<p>wins: " + 
 											wins + 
 											"</p>" +
