@@ -77,6 +77,10 @@
 
 							document.querySelector('#hangman').innerHTML = html;
 
+								var html = '<img src="images/hangman0.png">';
+											document.querySelector('#hangman').innerHTML = html;
+											console.log("qwert2")
+
 							// Computer checks that the user pressed a letter
 
 							{	if ((userGuess == 'q') || (userGuess == 'w') || (userGuess == 'e') || (userGuess == 'r') || (userGuess == 't') || (userGuess == 'y') || (userGuess == 'u') || (userGuess == 'i') || (userGuess == 'o') || (userGuess == 'p') || (userGuess == 'a') || (userGuess == 's') || (userGuess == 'd') || (userGuess == 'f') || (userGuess == 'g') || (userGuess == 'h') || (userGuess == 'j') || (userGuess == 'k') || (userGuess == 'l') || (userGuess == 'z') || (userGuess == 'x') || (userGuess == 'c') || (userGuess == 'v') || (userGuess == 'b') || (userGuess == 'n') || (userGuess == 'm'))
@@ -87,11 +91,7 @@
 
 								// Computer initiates amination
 
-								if (lives == 10)
-								{	var html = '<img src="images/hangman0.png">';
-									document.querySelector('#hangman').innerHTML = html;
-									console.log("qwert2")
-								}
+								
 
 								console.log(number)	
 
@@ -99,7 +99,8 @@
 
 								{	for ( var i = 0; i < computerGuess.length; i++) 
 									{	if (computerGuess[i] == userGuess)
-
+										
+										
 										// If it is correct it is logged in correctGuesses
 
 										{	console.log(computerGuess[i]);
@@ -111,6 +112,9 @@
 											{	alert("Oh No! How'd you win win win?");
 												wins++, lives = 10, correctGuesses = [], guesses = [], char = [];
 												computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)];
+												var html = '<img src="images/winner.png">';
+											document.querySelector('#hangman').innerHTML = html;
+											console.log("qwert2")
 												{	for (z = 0; z < computerGuess.length; z++)
 													{ char[z] = "_"
 													}
@@ -227,6 +231,7 @@
 							}	
 						}	
 					}									
+			
 				}					
 			</script>
 		</body>
