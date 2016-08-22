@@ -1,0 +1,20 @@
+body {
+	background-image: url(https://i.ytimg.com/vi/uxvoerkZcgo/maxresdefault.jpg)
+}
+
+p{
+	font-family: Arial;
+}
+
+img{
+	width: 150px;
+	height: 150px;
+}
+
+#hangman{
+	
+	position: absolute;
+	left: 600px;
+	top: 100px;
+
+}

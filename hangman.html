@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman</title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="game">
+		<p>Press any letter to play DJ Khaled at hangman</p>
+	</div>
+	<div id="khaled">
+		<<iframe src="http://giphy.com/gifs/26yxJMepJJZ7zMuVG/html5" width="500" height="210" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+	</div>
+	<div id="hangman">
+		<img src="images/hangman0.png">
+	</div>
+
+	<script type="text/javascript">
+	
+	// declare variables
+	var dictionary = ["inspirational", "khaled", "win", "key", "another", "success", "faith", "smart", "loyal", "genius", "victory", "best", "turntables", "record", "greater", "tunes", "beat", "artist", "god", "blessed", "sneakers"]
+	var wins = 0;
+	var losses = 0;
+	var lives = 10;
+	var guesses = [];
+	var computerGuess = [];
+	var correctGuesses = [];
+	var wordLength = computerGuess.length;
+	var char = [];
+	
+	document.onkeyup = function(event)
+		{   var computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)]; 
+
+			{for (z = 0; z < computerGuess.length; z++)
+									{ char[z] = "_"}
+
+	        var html = "<p>Press any letter to start guessing what word DJ Khaled chose</p>" +
+			"<p>wins: " + 
+			wins + 
+			"</p>" +
+			"<p>losses: " + 
+			losses + 
+			"</p>" +
+			"<p>lives: " + 
+			lives + 
+			"</p>" +
+			"<p>guesses: " + guesses
+			 + 
+			"</p>" +
+			"<p>Correct Guesses: " + 
+			correctGuesses + 
+			"</p>" +
+			"<p>Word:" + 
+			char +
+			"</p>";
+
+			// Placing the html into the game ID
+
+			document.querySelector('#game').innerHTML = html;
+
+			// computer checks that player has enough lives to carry on playing
+
+			// var html = "<<iframe src='http://giphy.com/gifs/VEMpi0ZCN7R7y/html5' document.querySelector('#game').innerHTML = html; frameBorder="0" class="giphy-embed" allowFullScreen></iframe>";
+
+			// document.querySelector('#khaled').innerHTML = html;
+
+			
+			document.onkeyup = function(event)
+				{	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+					guesses.push(userGuess);
+
+					
+						
+
+							{	if ((userGuess == 'q') || (userGuess == 'w') || (userGuess == 'e') || (userGuess == 'r') || (userGuess == 't') || (userGuess == 'y') || (userGuess == 'u') || (userGuess == 'i') || (userGuess == 'o') || (userGuess == 'p') || (userGuess == 'a') || (userGuess == 's') || (userGuess == 'd') || (userGuess == 'f') || (userGuess == 'g') || (userGuess == 'h') || (userGuess == 'j') || (userGuess == 'k') || (userGuess == 'l') || (userGuess == 'z') || (userGuess == 'x') || (userGuess == 'c') || (userGuess == 'v') || (userGuess == 'b') || (userGuess == 'n') || (userGuess == 'm'))	
+
+								var number = (computerGuess.length - correctGuesses.length);
+
+								console.log(number)	
+
+								{for ( var i = 0; i < computerGuess.length; i++) 
+
+									{
+
+										if (computerGuess[i] == userGuess)
+										{	console.log(computerGuess[i]);
+											correctGuesses.push(userGuess);
+									
+
+											if (correctGuesses.length == computerGuess.length){
+												alert("Oh No! How'd you win win win?");
+												wins++, lives = 10, correctGuesses = [], guesses = [], char = [];
+												computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)];
+												{for (z = 0; z < computerGuess.length; z++)
+												{ char[z] = "_"}
+												console.log("YErp")}
+											
+										}
+									
+									}
+								}
+								if (number == (computerGuess.length - correctGuesses.length))
+								
+								{
+									lives--;
+
+									if (lives == 9){
+										var html = '<img src="images/hangman1.png">';
+
+										document.querySelector('#hangman').innerHTML = html;
+										console.log("qwert2")
+
+
+									}
+
+									if (lives == 8){
+										var html = '<img src="images/hangman2.png">';
+
+										document.querySelector('#hangman').innerHTML = html;
+										console.log("qwert2")
+									}
+
+									if (lives == 7){
+										var html = '<img src="images/hangman3.png">';
+
+										document.querySelector('#hangman').innerHTML = html;
+										console.log("qwert2")
+									}
+
+									if (lives == 6){
+										var html = '<img src="images/hangman4.png">';
+
+										document.querySelector('#hangman').innerHTML = html;
+										console.log("qwert2")
+									}
+
+									if (lives == 5){
+										var html = '<img src="images/hangman5.png">';
+
+										document.querySelector('#hangman').innerHTML = html;
+										console.log("qwert2")
+									}
+
+									if (lives == 4){
+										var html = '<img src="images/hangman6.png">';
+
+										document.querySelector('#hangman').innerHTML = html;
+										console.log("qwert2")
+									}
+
+									if (lives == 3){
+										var html = '<img src="images/hangman7.png">';
+
+										document.querySelector('#hangman').innerHTML = html;
+										console.log("qwert2")
+									}
+
+									if (lives == 2){
+										var html = '<img src="images/hangman8.png">';
+
+										document.querySelector('#hangman').innerHTML = html;
+										console.log("qwert2")
+									}
+
+									if (lives == 1){
+										var html = '<img src="images/hangman9.png">';
+
+										document.querySelector('#hangman').innerHTML = html;
+										console.log("qwert2")
+									}
+
+									if (lives == 0){
+										var html = '<img src="images/hangman10.jpg">';
+
+										document.querySelector('#hangman').innerHTML = html;
+										console.log("qwert2")
+									}
+
+									if (lives < 1)
+										{	alert("I've got no time for losers");
+											losses++, lives = 10, correctGuesses = [], guesses = [], char = [];
+												computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)];
+												{for (z = 0; z < computerGuess.length; z++)
+												{ char[z] = "_"}
+												console.log("Nope")}
+
+									}
+								}
+							
+							}
+
+							var letter = computerGuess.split("");
+							{	for( x = 0; x < computerGuess.length; x++)
+								{	if(userGuess == letter[x])
+										{ char[x] = " " + userGuess + " "; 
+										}
+
+								}
+							}
+
+							var html = "<p>Press any key to continue playing</p>" +
+								"<p>wins: " + 
+								wins + 
+								"</p>" +
+								"<p>losses: " + 
+								losses + 
+								"</p>" +
+								"<p>lives: " + 
+								lives + 
+								"</p>" +
+								"<p>guesses: " + 
+								guesses + 
+								"</p>" +
+								"<p>Correct Guesses: " + 
+								correctGuesses + 
+								"</p>" +
+								"<p>Word:" + 
+								char +
+								"</p>";
+
+								// Placing the html into the game ID
+								document.querySelector('#game').innerHTML = html;
+						}	
+					}	
+			}									
+		}					
+			
+
+
+
+
+	</script>
+</body>
+</html>
+
+
