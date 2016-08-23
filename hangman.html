@@ -30,12 +30,13 @@
 			var correctGuesses = [];
 			var wordLength = computerGuess.length;
 			var char = [];
-			
+			var n;
+			var checker = [];
 			// when user presses a key it initiates the game and the computer choses a word from dictionary (computerGuess)
 
 			document.onkeyup = function(event)
 				{   var computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)]; 
-
+					console.log("START")
 					//  computer prints an underscore for each letter of the computerGuess
 
 					{	for (z = 0; z < computerGuess.length; z++)
@@ -53,7 +54,7 @@
 						"<p>lives: " + 
 						lives + 
 						"</p>" +
-						"<p>guesses: " + guesses
+						"<p>guesses: " + checker
 						 + 
 						"</p>" +
 						"<p>Correct Guesses: " + 
@@ -73,50 +74,108 @@
 
 						// The computer logs the users keystoke (userGuess)
 
-						document.onkeyup = function(event)
+						document.onkeydown = function(event)
 						{	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-							guesses.push(userGuess);
+							
 
 							document.querySelector('#hangman').innerHTML = html;
 
-								var html = '<img src="images/hangman0.png">';
+										if (lives == 10)
+										{	var html ='<img src="images/hangman0.png">'
 											document.querySelector('#hangman').innerHTML = html;
-											console.log("qwert2")
-
-							// Computer checks that the user pressed a letter
-
-							{	if ((userGuess == 'q') || (userGuess == 'w') || (userGuess == 'e') || (userGuess == 'r') || (userGuess == 't') || (userGuess == 'y') || (userGuess == 'u') || (userGuess == 'i') || (userGuess == 'o') || (userGuess == 'p') || (userGuess == 'a') || (userGuess == 's') || (userGuess == 'd') || (userGuess == 'f') || (userGuess == 'g') || (userGuess == 'h') || (userGuess == 'j') || (userGuess == 'k') || (userGuess == 'l') || (userGuess == 'z') || (userGuess == 'x') || (userGuess == 'c') || (userGuess == 'v') || (userGuess == 'b') || (userGuess == 'n') || (userGuess == 'm'))
+										}
+											if (lives == 9)
+										{	var html = '<img src="images/hangman1.png">';
+											document.querySelector('#hangman').innerHTML = html;
+											console.log("hangman1")
+										}
+										if (lives == 8)
+										{	var html = '<img src="images/hangman2.png">';
+											document.querySelector('#hangman').innerHTML = html;
+											console.log("hangman2")
+										}
+										if (lives == 7)
+										{	var html = '<img src="images/hangman3.png">';
+											document.querySelector('#hangman').innerHTML = html;
+											console.log("hangman3")
+										}
+										if (lives == 6)
+										{	var html = '<img src="images/hangman4.png">';
+											document.querySelector('#hangman').innerHTML = html;
+											console.log("hangman4")
+										}
+										if (lives == 5)
+										{	var html = '<img src="images/hangman5.png">';
+											document.querySelector('#hangman').innerHTML = html;
+											console.log("hangman5")
+										}
+										if (lives == 4)
+										{	var html = '<img src="images/hangman6.png">';
+											document.querySelector('#hangman').innerHTML = html;
+											console.log("hangman6")
+										}
+										if (lives == 3)
+										{	var html = '<img src="images/hangman7.png">';
+											document.querySelector('#hangman').innerHTML = html;
+											console.log("hangman7")
+										}
+										if (lives == 2)
+										{	var html = '<img src="images/hangman8.png">';
+											document.querySelector('#hangman').innerHTML = html;
+											console.log("hangman8")
+										}
+										if (lives == 1)
+										{	var html = '<img src="images/hangman9.png">';
+											document.querySelector('#hangman').innerHTML = html;
+											console.log("hangman9")
+										}
+										if (lives == 0)
+										{	var html = '<img src="images/hangman10.jpg">';
+											document.querySelector('#hangman').innerHTML = html;
+											console.log("hangman10")
+										};
+											
+							// Computer checks that the user pressed a letter and that the letter has not been pressed before
+						
+							{	if ((userGuess == 'q') || (userGuess == 'w') || (userGuess == 'e') || (userGuess == 'r') || (userGuess == 't') || (userGuess == 'y') || (userGuess == 'u') || (userGuess == 'i') || (userGuess == 'o') || (userGuess == 'p') || (userGuess == 'a') || (userGuess == 's') || (userGuess == 'd') || (userGuess == 'f') || (userGuess == 'g') || (userGuess == 'h') || (userGuess == 'j') || (userGuess == 'k') || (userGuess == 'l') || (userGuess == 'z') || (userGuess == 'x') || (userGuess == 'c') || (userGuess == 'v') || (userGuess == 'b') || (userGuess == 'n') || (userGuess == 'm'));
 
 								// Computer calculates number used to determine winner
 
 								var number = (computerGuess.length - correctGuesses.length);
 
+								n = (checker.indexOf(userGuess));
+
 								// Computer initiates amination
-
-								
-
+								console.log(userGuess)
+								console.log(n)
 								console.log(number)	
 
+
+								if ( n == -1)
+
+								{checker.push(userGuess);
+									console.log(checker);
+								
+									
 								// computer checks userGuess against computerGuess 
 
-								{	for ( var i = 0; i < computerGuess.length; i++) 
+									for ( var i = 0; i < computerGuess.length; i++) 
 									{	if (computerGuess[i] == userGuess)
-										
 										
 										// If it is correct it is logged in correctGuesses
 
-										{	console.log(computerGuess[i]);
+										{	console.log("CORRECT");
 											correctGuesses.push(userGuess);
 
 											//  If the number of correctGuesses = number of characters in computerGuess, user wins, game resets, computer logs 1 win for the user
 
 											if (correctGuesses.length == computerGuess.length)
 											{	alert("Oh No! How'd you win win win? The key is to enjoy life, because they don't want you to enjoy life.");
-												wins++, lives = 10, correctGuesses = [], guesses = [], char = [];
+												wins++, lives = 10, correctGuesses = [], guesses = [], char = [], checker = [];
 												computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)];
 												var html = '<img src="images/winner.png">';
 											document.querySelector('#hangman').innerHTML = html;
-											console.log("qwert2")
+											console.log("win")
 												{	for (z = 0; z < computerGuess.length; z++)
 													{ char[z] = "_"
 													}
@@ -130,7 +189,7 @@
 
 									if (number == (computerGuess.length - correctGuesses.length))
 									{	lives--;
-
+										console.log("INCORRECT")
 										// hangman naimation series
 									}
 										if (lives == 9)
@@ -156,39 +215,39 @@
 										if (lives == 5)
 										{	var html = '<img src="images/hangman5.png">';
 											document.querySelector('#hangman').innerHTML = html;
-											console.log("han")
+											console.log("hangman5")
 										}
 										if (lives == 4)
 										{	var html = '<img src="images/hangman6.png">';
 											document.querySelector('#hangman').innerHTML = html;
-											console.log("qwert2")
+											console.log("hangman6")
 										}
 										if (lives == 3)
 										{	var html = '<img src="images/hangman7.png">';
 											document.querySelector('#hangman').innerHTML = html;
-											console.log("qwert2")
+											console.log("hangman7")
 										}
 										if (lives == 2)
 										{	var html = '<img src="images/hangman8.png">';
 											document.querySelector('#hangman').innerHTML = html;
-											console.log("qwert2")
+											console.log("hangman8")
 										}
 										if (lives == 1)
 										{	var html = '<img src="images/hangman9.png">';
 											document.querySelector('#hangman').innerHTML = html;
-											console.log("qwert2")
+											console.log("hangman9")
 										}
 										if (lives == 0)
 										{	var html = '<img src="images/hangman10.jpg">';
 											document.querySelector('#hangman').innerHTML = html;
-											console.log("qwert2")
+											console.log("hangman10")
 										}
 
 										// if lives are less than one, computer tells the user they have lost, resets game and logs one loss for the user
 
 										if (lives < 1)
 										{	alert("I've got no time for losers. The key to more sucess is cocoa butter.");
-											losses++, lives = 10, correctGuesses = [], guesses = [], char = [];
+											losses++, lives = 10, correctGuesses = [], guesses = [], char = [], checker = [];
 											computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)];
 											{	for (z = 0; z < computerGuess.length; z++)
 												{ 	char[z] = "_"
@@ -197,11 +256,11 @@
 											}
 										}
 									
-								}
-
+								
+								document.onkeyup = function(event)
 								// converts the computerGuess into individual chars, then prints them if they have already been guessed by the user.
 
-								var letter = computerGuess.split("");
+								{var letter = computerGuess.split("");
 								{	for( x = 0; x < computerGuess.length; x++)
 									{	if(userGuess == letter[x])
 										{ char[x] = " " + userGuess + " "; 
@@ -219,7 +278,7 @@
 											lives + 
 											"</p>" +
 											"<p>guesses: " + 
-											guesses + 
+											checker + 
 											"</p>" +
 											"<p>Correct Guesses: " + 
 											correctGuesses + 
@@ -230,11 +289,12 @@
 
 											// Placing the html into the game ID
 											document.querySelector('#game').innerHTML = html;
-							}	
+							}		
 						}	
 					}									
-			
-				}					
+				}
+			}
+			}						
 			</script>
 		</body>
 	</html>
