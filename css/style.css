@@ -1,6 +1,6 @@
 body,html{height:80%;margin:0;padding:0;background:#E3DFD2}
 svg{
-  background:url('https://raw.githubusercontent.com/bernerd252/HW-Hangman/master/images/crp_1455817429836.jpg');
+  background:url('http://static.highsnobiety.com/wp-content/uploads/2016/06/24213132/dj-khaled-major-key-artwork-00.jpg');
   background-size:cover;
   width:40vmin; height:auto;
   display:block;
@@ -21,8 +21,8 @@ svg:hover text{
   font-family: 'Cinzel', serif;
   text-align: center;
   font-weight: bold;
+  margin-top: 50px;
 }
 
-#topHeader{
-  margin-top: 100px;
-}
+
+
