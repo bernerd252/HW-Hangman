@@ -1,0 +1,18 @@
+body,html{height:100%;margin:0;padding:0;background:#E3DFD2}
+svg{
+  background:url('https://raw.githubusercontent.com/bernerd252/HW-Hangman/master/images/crp_1455817429836.jpg');
+  background-size:cover;
+  width:40vmin; height:auto;
+  display:block;
+  margin:30vmin auto;
+}
+text{
+  font-size:10px;
+  transition:font-size .4s ease-out;
+  font-weight:900;
+  font-family: 'Cinzel', serif;
+}
+svg:hover text{
+  transition:font-size .6s ease-in;
+  font-size: 700px;
+}
